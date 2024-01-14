@@ -1,0 +1,121 @@
+.searchBox{
+    padding: .2rem 1rem;
+    border: 1px var(--black) solid;
+    border-radius: 100rem;
+    margin: auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    width: fit-content;
+}
+
+.searchBox input{
+    outline: none;
+    border: none;
+}
+
+.searchBox button{
+    cursor: pointer;
+    border: none;
+    /* Remove default background */
+    background-color: transparent;
+}
+
+.vendorSelect{
+    border-radius: 100px;
+    background: var(--blue);
+    padding: .5rem 1rem;
+    flex-shrink: 0;
+    color: var(--Lightness, #F2F2F2);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    margin: auto;
+    width: fit-content;
+}
+
+.vendorSelect select{
+    background: transparent;
+    outline: none;
+}
+
+/* styles/CustomSelect.module.css */
+.selectContainer {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .customSelect {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    appearance: none;
+  }
+  
+  .customSelectOptions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 100%;
+    margin: 0;
+    padding: 0.5rem 10rem;
+    color: var(--black);
+    list-style: none;
+    background-color: #000;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+  }
+  
+  .customSelectOptions li {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: #f8f9fa;
+    transition: background-color 0.3s;
+  }
+  
+  .customSelectOptions li:hover {
+    background-color: #f8f9fa;
+  }
+
+  .vendorSelect optgroup{
+    color: #000;
+  }
+
+.searchContainer h3{
+    color: var(--darkBlue);
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align: center;
+    padding: 2rem;
+}  
+.prompt{
+    width: fit-content;
+    margin: auto;
+}
+.promptBox{
+    border-radius: 0px 0px 30px 30px;
+    background: #9FC6FF;
+    padding: 1rem;
+}
+.promptBox textarea{
+    color: #0053CC;
+    text-align: justify;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    outline: none;
+    background-color: transparent;
+}
