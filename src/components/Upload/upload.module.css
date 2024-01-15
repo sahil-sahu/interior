@@ -21,6 +21,7 @@
 .uploadButton{
     border-radius: 100px;
     background: var(--blue);
+    padding: .3rem 1rem;
     width: 365px;
     height: 85px;
     flex-shrink: 0;
