@@ -1,3 +1,9 @@
+async function blobUrlToFile(blobUrl, fileName) {
+    const response = await fetch(blobUrl);
+    const blob = await response.blob();
+    return new File([blob], fileName, { type: blob.type });
+  }
+
 export function handleImageUpload(event, containerId, imgId, coordDisplayId, maskedImageId) {
     const img = document.getElementById(imgId);
     img.src = URL.createObjectURL(event.target.files[0]);
@@ -56,14 +62,17 @@ export function handleImageUpload(event, containerId, imgId, coordDisplayId, mas
     });
 }
 
-export function synthesizeImages(uploadedImage, maskedImage, uploadedImage2, maskedImage2) {
+export async function synthesizeImages(uploadedImage, maskedImage, uploadedImage2, maskedImage2) {
     const fileInput1 = document.getElementById('uploadInput1');
     const fileInput2 = document.getElementById('uploadInput2');
+    const maskBlob1 = document.getElementById('maskedImage')?.src;
+    const maskBlob2 = document.getElementById('maskedImage2')?.src;
 
     const baseImage = fileInput1.files[0];
-    const baseMask = fileInput1.files[0];
     const refImage = fileInput2.files[0];
-    const refMask = fileInput2.files[0];
+
+    const baseMask = await blobUrlToFile(maskBlob1, 'image.jpg');
+    const refMask = await blobUrlToFile(maskBlob2, 'ref_mask.jpg');
     const img = document.getElementById("uploadedImageR");;
     img.src = URL.createObjectURL(baseImage);
     URL.createObjectURL(baseImage);
