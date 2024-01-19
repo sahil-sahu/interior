@@ -4,6 +4,7 @@ import styles from './search.module.css'
 import Heading from '../heading'
 import search from '@/app/assets/search.svg'
 import { useState, FC, ChangeEvent } from 'react';
+import { SearchType } from '@/types'
 
 interface Option {
     value: string;
@@ -21,7 +22,9 @@ const options: Option[] = [
 { value: 'Home Depot', label: 'Home Depot' },
 { value: 'WakeFit', label: 'WakeFit' },
 ];
-export default function SearchBox() {
+
+
+export default function SearchBox({search:srch, setSearch, searchGo}:SearchType) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -33,13 +36,18 @@ export default function SearchBox() {
         setIsOpen(false);
   };
 
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
+
   return (
     <section className={styles.search}>
         <div className={styles.searchContainer}>
             <Heading>Search Object from Your favourite Vendors</Heading>
             <div className={styles.searchBox}>
-                <input type="text" placeholder="Recliner sofa" />
-                <button>
+                <input value={srch}
+                    onChange={handleInputChange} type="text" placeholder="Recliner sofa" />
+                <button onClick={()=>{searchGo();}}>
                     <Image src={search} alt="Search"/>
                 </button>
             </div>
